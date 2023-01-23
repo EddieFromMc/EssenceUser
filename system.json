@@ -1,0 +1,27 @@
+{
+  "id": "essenceuser",
+  "title": "Essence User",
+  "description": "A rudimentary implementation of Essence User for Foundry VTT, based entirely on the Simple Worldbuilding System for Foundry designed by Atropos",
+  "version": "0.3.1.1",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "10",
+  "author": "Edward",
+  "esmodules": ["module/simple.js"],
+  "styles": ["styles/simple.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "stamina",
+  "url": "https://github.com/EddieFromMc/essenceuser",
+  "manifest": "https://raw.githubusercontent.com/EddieFromMc/essenceuser/main/system.json",
+  "download": "https://github.com/EddieFromMc/essenceuser/archive/refs/heads/main.zip",
+  "license": "LICENSE.txt"
+}

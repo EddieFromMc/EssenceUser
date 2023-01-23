@@ -1,0 +1,759 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+   {{!-- Sheet Header --}}
+  <header class="sheet-header">
+   <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" height="100" width="100" />
+   <div class="header-fields">
+ <table>
+  <tr>
+  <td>
+	  <div class="charname">
+	   Name:<input  name="name" type="text" value="{{data.name}}" placeholder="Name" />
+	  </div>
+	 </td>
+  <td>
+   <div class="resource">
+	   Rank: <strong>{{systemData.rank.max}}-{{systemData.rank.value}}</strong>
+	   Speed:
+	   <input type="number" name="system.movespeed.value" value="{{systemData.movespeed.value}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+  LaC/HaC:
+    <input type="number" name="system.ac.value" value="{{systemData.ac.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.ac.max" value="{{systemData.ac.max}}"/>
+   </div> 
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <div class="resource">
+	  Health
+    <input type="number" name="system.health.value" value="{{systemData.health.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.health.max" value="{{systemData.health.max}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+	  Stamina:
+    <input type="number" name="system.stamina.value" value="{{systemData.stamina.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.stamina.max" value="{{systemData.stamina.max}}"/>
+   </div>
+  </td>
+  <td>
+   <div class="resource">
+	  Mana:
+    <input type="number" name="system.mana.value" value="{{systemData.mana.value}}"/>
+    <span>/</span>
+    <input type="number" name="system.mana.max" value="{{systemData.mana.max}}"/>
+   </div>
+  </td>
+ </tr>
+   </table> 
+  </div>
+ </header>
+
+ {{!-- Sheet Tab Navigation --}}
+ <nav class="sheet-tabs tabs" data-group="primary">
+  <a class="item" data-tab="abilites">Abilites</a>
+  <a class="item" data-tab="description">Description</a>
+  <a class="item" data-tab="items">Items</a>
+  <a class="item" data-tab="modifers">Modifers</a>
+ </nav>
+
+ {{!-- Sheet Body --}}
+ <section class="sheet-body">
+
+{{!-- Abilites Tab --}}
+  <div class="tab description" data-group="primary" data-tab="abilites">
+   <table>
+    <td>
+     <table>
+      <tr>
+       <td>
+	    <div class="stat" text-align=center>
+	     <input type="text" name="system.power.stone" value="{{systemData.power.stone}}" placeholder="Empty"/>
+	     <strong>Power</strong> - {{systemData.power.display}}
+	    </div>
+	   </td>
+	  </tr>
+	  <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT1.stone" value="{{systemData.AT1.stone}}" placeholder="stone" />
+		 <input style="width: 180px;" type="text" name="system.AT1.name" value="{{systemData.AT1.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT1.value}} {{systemData.AT1.next}} TU:<input type="number" name="system.AT1.tu" value="{{systemData.AT1.tu}}"/> | CU:<input type="number" name="system.AT1.cu" value="{{systemData.AT1.cu}}"/>
+        </div>
+		<div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT1.type" value="{{systemData.AT1.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT1.cooldown" value="{{systemData.AT1.cooldown}}"/>
+        </div>
+		<div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT1.cost" value="{{systemData.AT1.cost}}"/>
+        </div>
+		<div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT1.category" value="{{systemData.AT1.category}}"/>
+        </div>
+		<div style="height: 150px;">
+         {{editor effect1HTML target="system.effect1" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+	  <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT2.stone" value="{{systemData.AT2.stone}}" placeholder="stone" />
+		 <input style="width: 180px;" type="text" name="system.AT2.name" value="{{systemData.AT2.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT2.value}} {{systemData.AT2.next}} TU:<input type="number" name="system.AT2.tu" value="{{systemData.AT2.tu}}"/> | CU:<input type="number" name="system.AT2.cu" value="{{systemData.AT2.cu}}"/>
+        </div>
+		<div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT2.type" value="{{systemData.AT2.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT2.cooldown" value="{{systemData.AT2.cooldown}}"/>
+        </div>
+		<div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT2.cost" value="{{systemData.AT2.cost}}"/>
+        </div>
+		<div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT2.category" value="{{systemData.AT2.category}}"/>
+        </div>
+		<div style="height: 150px;">
+         {{editor effect2HTML target="system.effect2" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+	  <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT3.stone" value="{{systemData.AT3.stone}}" placeholder="stone" />
+		 <input style="width: 180px;" type="text" name="system.AT3.name" value="{{systemData.AT3.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT3.value}} {{systemData.AT3.next}} TU:<input type="number" name="system.AT3.tu" value="{{systemData.AT3.tu}}"/> | CU:<input type="number" name="system.AT3.cu" value="{{systemData.AT3.cu}}"/>
+        </div>
+		<div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT3.type" value="{{systemData.AT3.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT3.cooldown" value="{{systemData.AT3.cooldown}}"/>
+        </div>
+		<div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT3.cost" value="{{systemData.AT3.cost}}"/>
+        </div>
+		<div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT3.category" value="{{systemData.AT3.category}}"/>
+        </div>
+		<div style="height: 150px;">
+         {{editor effect3HTML target="system.effect3" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+	  <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT4.stone" value="{{systemData.AT4.stone}}" placeholder="stone" />
+		 <input style="width: 180px;" type="text" name="system.AT4.name" value="{{systemData.AT4.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT4.value}} {{systemData.AT4.next}} TU:<input type="number" name="system.AT4.tu" value="{{systemData.AT4.tu}}"/> | CU:<input type="number" name="system.AT4.cu" value="{{systemData.AT4.cu}}"/>
+        </div>
+		<div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT4.type" value="{{systemData.AT4.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT4.cooldown" value="{{systemData.AT4.cooldown}}"/>
+        </div>
+		<div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT4.cost" value="{{systemData.AT4.cost}}"/>
+        </div>
+		<div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT4.category" value="{{systemData.AT4.category}}"/>
+        </div>
+		<div style="height: 150px;">
+         {{editor effect4HTML target="system.effect4" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+	  <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT5.stone" value="{{systemData.AT5.stone}}" placeholder="stone" />
+		 <input style="width: 180px;" type="text" name="system.AT5.name" value="{{systemData.AT5.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT5.value}} {{systemData.AT5.next}} TU:<input type="number" name="system.AT5.tu" value="{{systemData.AT5.tu}}"/> | CU:<input type="number" name="system.AT5.cu" value="{{systemData.AT5.cu}}"/>
+        </div>
+		<div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT5.type" value="{{systemData.AT5.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT5.cooldown" value="{{systemData.AT5.cooldown}}"/>
+        </div>
+		<div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT5.cost" value="{{systemData.AT5.cost}}"/>
+        </div>
+		<div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT5.category" value="{{systemData.AT5.category}}"/>
+        </div>
+		<div style="height: 150px;">
+         {{editor effect5HTML target="system.effect5" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+     </table>
+    </td>
+    <td>
+     <table>
+      <tr>
+       <td>
+	    <div class="stat" text-align=center>
+	     <input type="text" name="system.speed.stone" value="{{systemData.speed.stone}}" placeholder="Empty"/>
+	     <strong>Speed</strong> - {{systemData.speed.display}}
+	    </div>
+	   </td>
+      </tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT6.stone" value="{{systemData.AT6.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT6.name" value="{{systemData.AT6.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT6.value}} {{systemData.AT6.next}} TU:<input type="number" name="system.AT6.tu" value="{{systemData.AT6.tu}}" /> | CU:<input type="number" name="system.AT6.cu" value="{{systemData.AT6.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT6.type" value="{{systemData.AT6.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT6.cooldown" value="{{systemData.AT6.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT6.cost" value="{{systemData.AT6.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT6.category" value="{{systemData.AT6.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect6HTML target="system.effect6" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT7.stone" value="{{systemData.AT7.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT7.name" value="{{systemData.AT7.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT7.value}} {{systemData.AT7.next}} TU:<input type="number" name="system.AT7.tu" value="{{systemData.AT7.tu}}" /> | CU:<input type="number" name="system.AT7.cu" value="{{systemData.AT7.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT7.type" value="{{systemData.AT7.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT7.cooldown" value="{{systemData.AT7.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT7.cost" value="{{systemData.AT7.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT7.category" value="{{systemData.AT7.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect7HTML target="system.effect7" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT8.stone" value="{{systemData.AT8.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT8.name" value="{{systemData.AT8.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT8.value}} {{systemData.AT8.next}} TU:<input type="number" name="system.AT8.tu" value="{{systemData.AT8.tu}}" /> | CU:<input type="number" name="system.AT8.cu" value="{{systemData.AT8.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT8.type" value="{{systemData.AT8.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT8.cooldown" value="{{systemData.AT8.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT8.cost" value="{{systemData.AT8.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT8.category" value="{{systemData.AT8.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect8HTML target="system.effect8" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT9.stone" value="{{systemData.AT9.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT9.name" value="{{systemData.AT9.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT9.value}} {{systemData.AT9.next}} TU:<input type="number" name="system.AT9.tu" value="{{systemData.AT9.tu}}" /> | CU:<input type="number" name="system.AT9.cu" value="{{systemData.AT9.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT9.type" value="{{systemData.AT9.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT9.cooldown" value="{{systemData.AT9.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT9.cost" value="{{systemData.AT9.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT9.category" value="{{systemData.AT9.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect9HTML target="system.effect9" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT10.stone" value="{{systemData.AT10.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT10.name" value="{{systemData.AT10.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT10.value}} {{systemData.AT10.next}} TU:<input type="number" name="system.AT10.tu" value="{{systemData.AT10.tu}}" /> | CU:<input type="number" name="system.AT10.cu" value="{{systemData.AT10.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT10.type" value="{{systemData.AT10.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT10.cooldown" value="{{systemData.AT10.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT10.cost" value="{{systemData.AT10.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT10.category" value="{{systemData.AT10.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect10HTML target="system.effect10" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>     </table>
+    </td>
+    <td>
+     <table>
+      <tr>
+       <td>
+	    <div class="stat" text-align=center>
+	     <input type="text" name="system.spirit.stone" value="{{systemData.spirit.stone}}" placeholder="Empty"/>
+	     <strong>Spirit</strong> - {{systemData.spirit.display}}
+	    </div>
+	   </td>
+	  </tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT11.stone" value="{{systemData.AT11.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT11.name" value="{{systemData.AT11.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT11.value}} {{systemData.AT11.next}} TU:<input type="number" name="system.AT11.tu" value="{{systemData.AT11.tu}}" /> | CU:<input type="number" name="system.AT11.cu" value="{{systemData.AT11.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT11.type" value="{{systemData.AT11.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT11.cooldown" value="{{systemData.AT11.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT11.cost" value="{{systemData.AT11.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT11.category" value="{{systemData.AT11.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect11HTML target="system.effect11" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT12.stone" value="{{systemData.AT12.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT12.name" value="{{systemData.AT12.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT12.value}} {{systemData.AT12.next}} TU:<input type="number" name="system.AT12.tu" value="{{systemData.AT12.tu}}" /> | CU:<input type="number" name="system.AT12.cu" value="{{systemData.AT12.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT12.type" value="{{systemData.AT12.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT12.cooldown" value="{{systemData.AT12.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT12.cost" value="{{systemData.AT12.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT12.category" value="{{systemData.AT12.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect12HTML target="system.effect12" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT13.stone" value="{{systemData.AT13.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT13.name" value="{{systemData.AT13.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT13.value}} {{systemData.AT13.next}} TU:<input type="number" name="system.AT13.tu" value="{{systemData.AT13.tu}}" /> | CU:<input type="number" name="system.AT13.cu" value="{{systemData.AT13.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT13.type" value="{{systemData.AT13.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT13.cooldown" value="{{systemData.AT13.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT13.cost" value="{{systemData.AT13.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT13.category" value="{{systemData.AT13.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect13HTML target="system.effect13" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT14.stone" value="{{systemData.AT14.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT14.name" value="{{systemData.AT14.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT14.value}} {{systemData.AT14.next}} TU:<input type="number" name="system.AT14.tu" value="{{systemData.AT14.tu}}" /> | CU:<input type="number" name="system.AT14.cu" value="{{systemData.AT14.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT14.type" value="{{systemData.AT14.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT14.cooldown" value="{{systemData.AT14.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT14.cost" value="{{systemData.AT14.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT14.category" value="{{systemData.AT14.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect14HTML target="system.effect14" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div class="abilityname">
+      <input style="width: 60px;" type="text" name="system.AT15.stone" value="{{systemData.AT15.stone}}" placeholder="stone" />
+      <input style="width: 180px;" type="text" name="system.AT15.name" value="{{systemData.AT15.name}}" placeholder="ability name" />
+    </div>
+    <div class="abilityrank">
+      Tier - {{systemData.AT15.value}} {{systemData.AT15.next}} TU:<input type="number" name="system.AT15.tu" value="{{systemData.AT15.tu}}" /> | CU:<input type="number" name="system.AT15.cu" value="{{systemData.AT15.cu}}" />
+    </div>
+    <div class="abilityname">
+      Type: <input style="width: 25%;" type="text" name="system.AT15.type" value="{{systemData.AT15.type}}" /> | Cooldown:<input style="width: 25%;" type="text" name="system.AT15.cooldown" value="{{systemData.AT15.cooldown}}" />
+    </div>
+    <div class="abilityrank">
+      Cost: <input style="width: 81%;" type="text" name="system.AT15.cost" value="{{systemData.AT15.cost}}" />
+    </div>
+    <div class="abilityrank">
+      Category: <input style="width: 70%;" type="text" name="system.AT15.category" value="{{systemData.AT15.category}}" />
+    </div>
+    <div style="height: 150px;">
+      {{editor effect15HTML target="system.effect15" button=true editable=editable engine="prosemirror"}}
+    </div>
+  </td>
+</tr>     </table>
+    </td>
+    <td>
+     <table>
+      <tr>
+       <td>
+	    <div class="stat" text-align=center>
+	     <input type="text" name="system.recovery.stone" value="{{systemData.recovery.stone}}" placeholder="Empty"/>
+	     <strong>Recovery</strong> - {{systemData.recovery.display}}
+	    </div>
+	   </td>
+	  </tr>
+          <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT16.stone" value="{{systemData.AT16.stone}}" placeholder="stone" />
+                 <input style="width: 180px;" type="text" name="system.AT16.name" value="{{systemData.AT16.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT16.value}} {{systemData.AT16.next}} TU:<input type="number" name="system.AT16.tu" value="{{systemData.AT16.tu}}"/> | CU:<input type="number" name="system.AT16.cu" value="{{systemData.AT16.cu}}"/>
+        </div>
+                <div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT16.type" value="{{systemData.AT16.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT16.cooldown" value="{{systemData.AT16.cooldown}}"/>
+        </div>
+                <div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT16.cost" value="{{systemData.AT16.cost}}"/>
+        </div>
+                <div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT16.category" value="{{systemData.AT16.category}}"/>
+        </div>
+                <div style="height: 150px;">
+         {{editor effect16HTML target="system.effect16" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+          <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT17.stone" value="{{systemData.AT17.stone}}" placeholder="stone" />
+                 <input style="width: 180px;" type="text" name="system.AT17.name" value="{{systemData.AT17.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT17.value}} {{systemData.AT17.next}} TU:<input type="number" name="system.AT17.tu" value="{{systemData.AT17.tu}}"/> | CU:<input type="number" name="system.AT17.cu" value="{{systemData.AT17.cu}}"/>
+        </div>
+                <div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT17.type" value="{{systemData.AT17.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT17.cooldown" value="{{systemData.AT17.cooldown}}"/>
+        </div>
+                <div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT17.cost" value="{{systemData.AT17.cost}}"/>
+        </div>
+                <div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT17.category" value="{{systemData.AT17.category}}"/>
+        </div>
+                <div style="height: 150px;">
+         {{editor effect17HTML target="system.effect17" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+          <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT18.stone" value="{{systemData.AT18.stone}}" placeholder="stone" />
+                 <input style="width: 180px;" type="text" name="system.AT18.name" value="{{systemData.AT18.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT18.value}} {{systemData.AT18.next}} TU:<input type="number" name="system.AT18.tu" value="{{systemData.AT18.tu}}"/> | CU:<input type="number" name="system.AT18.cu" value="{{systemData.AT18.cu}}"/>
+        </div>
+                <div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT18.type" value="{{systemData.AT18.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT18.cooldown" value="{{systemData.AT18.cooldown}}"/>
+        </div>
+                <div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT18.cost" value="{{systemData.AT18.cost}}"/>
+        </div>
+                <div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT18.category" value="{{systemData.AT18.category}}"/>
+        </div>
+                <div style="height: 150px;">
+         {{editor effect18HTML target="system.effect18" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+          <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT19.stone" value="{{systemData.AT19.stone}}" placeholder="stone" />
+                 <input style="width: 180px;" type="text" name="system.AT19.name" value="{{systemData.AT19.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT19.value}} {{systemData.AT19.next}} TU:<input type="number" name="system.AT19.tu" value="{{systemData.AT19.tu}}"/> | CU:<input type="number" name="system.AT19.cu" value="{{systemData.AT19.cu}}"/>
+        </div>
+                <div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT19.type" value="{{systemData.AT19.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT19.cooldown" value="{{systemData.AT19.cooldown}}"/>
+        </div>
+                <div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT19.cost" value="{{systemData.AT19.cost}}"/>
+        </div>
+                <div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT19.category" value="{{systemData.AT19.category}}"/>
+        </div>
+                <div style="height: 150px;">
+         {{editor effect19HTML target="system.effect19" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>
+          <tr>
+       <td>
+        <div class="abilityname">   
+         <input style="width: 60px;" type="text" name="system.AT20.stone" value="{{systemData.AT20.stone}}" placeholder="stone" />
+                 <input style="width: 180px;" type="text" name="system.AT20.name" value="{{systemData.AT20.name}}" placeholder="ability name" />
+        </div>
+        <div class="abilityrank">
+         Tier - {{systemData.AT20.value}} {{systemData.AT20.next}} TU:<input type="number" name="system.AT20.tu" value="{{systemData.AT20.tu}}"/> | CU:<input type="number" name="system.AT20.cu" value="{{systemData.AT20.cu}}"/>
+        </div>
+                <div class="abilityname">
+         Type: <input style="width: 25%;" type="text" name="system.AT20.type" value="{{systemData.AT20.type}}"/> | Cooldown:<input style="width: 25%;"  type="text" name="system.AT20.cooldown" value="{{systemData.AT20.cooldown}}"/>
+        </div>
+                <div class="abilityrank">
+         Cost: <input style="width: 81%;" type="text" name="system.AT20.cost" value="{{systemData.AT20.cost}}"/>
+        </div>
+                <div class="abilityrank">
+         Category: <input style="width: 70%;" type="text" name="system.AT20.category" value="{{systemData.AT20.category}}"/>
+        </div>
+                <div style="height: 150px;">
+         {{editor effect20HTML target="system.effect20" button=true editable=editable engine="prosemirror"}}
+        </div>
+       </td>
+      </tr>    </table>
+    </td>
+   </table>  
+  </div>
+
+  {{!-- Biography Tab --}}
+  <div class="tab description" data-group="primary" data-tab="description">
+   <table>
+    <tr>
+	 <th>Race & Background</th>
+	</tr>
+    <tr>
+	 <td style="height: 250px;">
+	  {{editor raceHTML target="system.race" button=true editable=editable engine="prosemirror"}}
+	 </td>
+	</tr>
+    <tr>
+	 <th>Skills</th>
+	</tr>
+	<tr>
+	 <td>
+	  <table>
+	   <tr>
+	    <th><strong>Aura Control: </strong>
+	    <input style="width: 40px;" type="number" name="system.skills.auracontrol" value="{{systemData.skills.auracontrol}}"/></th>
+	    <th><strong>Perception: </strong>
+	    <input style="width: 40px;" type="number" name="system.skills.perception" value="{{systemData.skills.perception}}"/></th>
+	    <th><strong>Acrobatics: </strong>
+	    <input style="width: 40px;" type="number" name="system.skills.acrobatics" value="{{systemData.skills.acrobatics}}"/></th>
+	   </tr>
+	  </table>
+	 </td>
+	</tr>
+    <tr>
+	 <th>Skill Milestones & Knoweleges</th>
+	</tr>
+	<tr>
+	 <td style="height: 100px;">
+	  {{editor knowelegeHTML target="system.knowelege" button=true editable=editable engine="prosemirror"}}
+	 </td>
+	</tr>
+   </table>
+    
+  </div>
+
+	{{!-- Attributes Tab --}}
+  <div class="tab modifers" data-group="primary" data-tab="modifers">
+   <button class='my-module-name-barrelroll' data-actor-id=${actor.id}> Do a barrel roll </button>
+   <div>
+    Health Mod: <input style="width: 5%;" id="healthmod" type="number" name="system.health.mod" value="{{systemData.health.mod}}"/>
+    Health Mult: <input id="healthmult" style="width: 5%;" type="number" name="system.health.mult" value="{{systemData.health.mult}}">
+    Movespeed Mod: <input style="width: 5%;" id="movespeedmod" type="number" name="system.movespeed.mod" value="{{systemData.movespeed.mod}}">
+    Movespeed Mult: <input style="width: 5%;" id="movespeedmult" type="number" name="system.movespeed.mult" value="{{systemData.movespeed.mult}}">
+    LaC Mod: <input style="width: 5%;" type="number" name="system.ac.modl" value="{{systemData.ac.modl}}">
+	<div>
+	</div>
+    HaC Mod: <input style="width: 5%;" type="number" name="system.ac.modh" value="{{systemData.ac.modh}}">	
+    Power Mod: <input style="width: 5%;" type="number" name="system.power.mod" value="{{systemData.power.mod}}">
+    Speed Mod: <input style="width: 5%;" type="number" name="system.speed.mod" value="{{systemData.speed.mod}}">
+	Spirit Mod: <input style="width: 5%;" type="number" name="system.spirit.mod" value="{{systemData.spirit.mod}}">
+    Recovery Mod: <input style="width: 5%;" type="number" name="system.recovery.mod" value="{{systemData.recovery.mod}}">	
+	<div>
+	</div>
+	Misc A: <input style="width: 5%;" type="number" name="system.misc.a" value="{{systemData.misc.a}}">
+	Misc B: <input style="width: 5%;" type="number" name="system.misc.b" value="{{systemData.misc.b}}">
+	Misc C: <input style="width: 5%;" type="number" name="system.misc.c" value="{{systemData.misc.c}}">
+	Misc D: <input style="width: 5%;" type="number" name="system.misc.d" value="{{systemData.misc.d}}">
+	Misc E: <input style="width: 5%;" type="number" name="system.misc.e" value="{{systemData.misc.e}}">
+	<div>
+	</div>
+	Misc F: <input style="width: 5%;" type="number" name="system.misc.f" value="{{systemData.misc.f}}">
+	Misc G: <input style="width: 5%;" type="number" name="system.misc.g" value="{{systemData.misc.g}}">
+	Misc H: <input style="width: 5%;" type="number" name="system.misc.h" value="{{systemData.misc.h}}">
+	Misc I: <input style="width: 5%;" type="number" name="system.misc.i" value="{{systemData.misc.i}}">
+	Misc J: <input style="width: 5%;" type="number" name="system.misc.j" value="{{systemData.misc.j}}">
+   </div>
+   <div>
+   Health Recovery: <strong>{{systemData.recovery.health.value}}</strong> | Mod: <input style="width: 5%;" type="number" name="system.recovery.health.mod" value="{{systemData.recovery.health.mod}}"> | Mult: <input style="width: 5%;" type="number" name="system.recovery.health.mult" value="{{systemData.recovery.health.mult}}">
+   Mana Recovery: <strong>{{systemData.recovery.mana.value}}</strong> | Mod: <input style="width: 5%;" type="number" name="system.recovery.mana.mod" value="{{systemData.recovery.mana.mod}}"> | Mult: <input style="width: 5%;" type="number" name="system.recovery.mana.mult" value="{{systemData.recovery.mana.mult}}">
+   Stamina Recovery: <strong>{{systemData.recovery.stamina.value}}</strong> | Mod: <input style="width: 5%;" type="number" name="system.recovery.stamina.mod" value="{{systemData.recovery.stamina.mod}}"> | Mult: <input style="width: 5%;" type="number" name="system.recovery.stamina.mult" value="{{systemData.recovery.stamina.mult}}">
+   </div>
+   <div>
+    <table>
+	 <tr>
+	  <th>User Notes/Math</th>
+	 </tr>
+	</table>
+	</div>
+	<div style="height: 200px;">
+	  {{editor usernotesHTML target="system.usernotes" button=true editable=editable engine="prosemirror"}}
+   </div>
+  </div>
+
+  {{!-- Owned Items Tab --}}
+  <div class="tab items" data-group="primary" data-tab="items">
+   <table>
+    <tr>
+     <table>
+      <tr>
+	   <th class="title">Spirit Coins</th>   
+	  </tr>
+     </table>
+	 <table>
+       <tr>
+	    <td>Unranked:</td>
+	    <td width=25px><input type="number" name="system.currency.unranked" value="{{systemData.currency.unranked}}"/></td>
+	    <td style="opacity: 0;">|</td>
+		<td>Iron:</td>
+	    <td width=25px><input type="number" name="system.currency.iron" value="{{systemData.currency.iron}}"/></td>
+	    <td style="opacity: 0;">|</td>
+		<td>Bronze:</td>
+	    <td width=25px><input type="number" name="system.currency.bronze" value="{{systemData.currency.bronze}}"/></td>
+	    <td style="opacity: 0;">|</td>
+		<td>Silver:</td>
+	    <td width=25px><input type="number" name="system.currency.silver" value="{{systemData.currency.silver}}"/></td>
+	    <td style="opacity: 0;">|</td>
+		<td>Gold:</td>
+	    <td width=25px><input type="number" name="system.currency.gold" value="{{systemData.currency.gold}}"/></td>
+	    <td style="opacity: 0;">|</td>
+		<td>Diamond:</td>
+	    <td width=25px><input type="number" name="system.currency.diamond" value="{{systemData.currency.diamond}}"/></td>
+		<td style="opacity: 0;">|</td>
+		<td>Debt:</td>
+	    <td width=45px><input width=45px type="number" name="system.currency.debt" value="{{systemData.currency.debt}}"/></td>
+	    <td>
+	     <input type="text" name="system.currency.debttext" value="{{systemData.currency.debttext}}"/>
+	   </tr>
+      </table>
+	 </tr>
+    </table>
+   <ol class="item-list">
+    {{#each data.items as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+     <h4 class="item-name">{{item.name}}</h4>
+     {{!-- Iterate through all attributes on the item and output buttons for any that are formula. --}}
+     <div class="item-buttons">
+      {{#each item.system.attributes as |itemAttr key|}}
+      {{#if itemAttr.dtype}}
+       {{#if itemAttr.isFormula}}
+        {{!-- Use the items.name.key format for shorthand. --}}
+        {{#if ../../shorthand}}
+        <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}"
+         title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+        {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+        {{else}}
+        <button class="item-button rollable"
+         data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}"
+         title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+        {{/if}}
+       {{/if}}
+      {{else}}
+       {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+        {{#if itemGroupedAttr.isFormula}}
+         {{!-- Use the items.name.key format for shorthand. --}}
+         {{#if ../../../shorthand}}
+         <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}"
+          title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+         {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+         {{else}}
+         <button class="item-button rollable"
+          data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}"
+          title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+         {{/if}}
+        {{/if}}
+       {{/each}}
+      {{/if}}
+      {{/each}}
+     </div>
+     <div class="item-controls">
+      <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
+      <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+     </div>
+    </li>
+    {{/each}}
+   </ol>
+   <p>
+    <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
+   </p>
+  </div>
+
+ </section>
+</form>
